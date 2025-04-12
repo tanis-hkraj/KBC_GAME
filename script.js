@@ -397,7 +397,7 @@ function Question(question) {
             }
             break; 
     }
-    var fifty=`<button id="fifty">50 : 50</button></div>`;
+    // var fifty=`<button id="fifty">50 : 50</button></div>`;
     var html = `<div class="container">
             <div class="row">
                 <div class="col-lg-6">
