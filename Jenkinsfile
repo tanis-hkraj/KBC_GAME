@@ -17,6 +17,7 @@ pipeline {
         stage('Install Dependencies') {
             steps {
                 echo '📦 No dependencies needed for static site.'
+                bat 'if exist requirements.txt pip install -r requirements.txt'
             }
         }
 
