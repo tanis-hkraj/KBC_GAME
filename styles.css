@@ -1,122 +1,129 @@
-body{
+body {
     background-color: black;
-    /* color: white;  */
     margin: 0;
-    padding: 0; 
+    padding: 0;
+
+    /* color: white; */
+    font-family: Lora, serif;
 }
+
+/* Centered Container */
 .center-container {
     display: flex;
     justify-content: center;
     align-items: flex-start;
     margin-top: 7%;
 }
-img{
+
+/* Profile Image */
+img {
     border-radius: 50%;
     box-shadow: 0 0 100px yellow;
 }
-.question{
+
+/* Question Styling */
+.question {
     text-align: center;
-    /* font-size: 5rem; */
-    margin-left: 5%;
-    margin-right: 5%;
-    margin-top: 7%;
-    padding-left: 50px;
-    padding-right: 50px;
-    background:radial-gradient(circle,yellow,purple,blue);
+    margin: 7% 5% 0;
+    padding: 0 50px;
+    background: radial-gradient(circle, yellow, purple, blue);
     box-shadow: 0 0 20px blue;
     border-radius: 200px;
-    font-family: "Lora", serif;
-    font-optical-sizing: auto;
     font-weight: 600;
     font-style: normal;
+    font-optical-sizing: auto;
 }
-.table{
-   color: aliceblue;
-   text-shadow: 0 0 10px white;
+
+/* Table Styling */
+.table {
+    color: aliceblue;
+    text-shadow: 0 0 10px white;
 }
-.container{
+
+.container {
     margin-top: 2%;
 }
+
+/* Glowing Table Rows */
 .glow-row td,
 .glow-row th {
-    box-shadow: 0 0 10px white; /* White glow effect */
+    box-shadow: 0 0 10px white;
 }
-.quesStrt{
+
+/* Question Start Text */
+.ques-strt {
     font-size: 1.7rem;
-    padding-left: 50px;
-    padding-right: 50px;
-    background:radial-gradient(circle,yellow,purple,blue);
+    padding: 0 50px;
+    background: radial-gradient(circle, yellow, purple, blue);
     border-radius: 200px;
-    font-family: "Lora", serif;
-    font-optical-sizing: auto;
     font-weight: 800;
     font-style: normal;
     color: black;
     text-shadow: 0 0 10px white;
 }
-.option{
+
+/* Options Styling */
+.option {
     font-size: 1.5rem;
     width: 90%;
     text-align: left;
     margin-top: 2%;
+    padding: 3px 0 3px 5%;
     border-radius: 100px;
-    padding-left: 5%;
-    background:radial-gradient(circle,yellow,purple,blue);
+    background: radial-gradient(circle, yellow, purple, blue);
     box-shadow: 0 0 10px blue;
-    padding-top: 3px;
-    padding-bottom: 3px;
-    font-family: "Lora", serif;
-    font-optical-sizing: auto;
     font-weight: 600;
     font-style: normal;
     color: black;
     text-shadow: 0 0 10px white;
 }
-@keyframes fadeInOutGreen {
+
+/* Option Feedback Animations */
+@keyframes fade-in-out-green {
     0%, 100% { background-color: green; }
     50% { background-color: transparent; }
 }
 
-@keyframes fadeInOutRed {
+@keyframes fade-in-out-red {
     0%, 100% { background-color: red; }
     50% { background-color: transparent; }
 }
 
-
 .option.correct-answer {
-    animation: fadeInOutGreen 1.5s ease-in-out forwards;
+    animation: fade-in-out-green 1.5s ease-in-out forwards;
 }
 
 .option.incorrect-answer {
-    animation: fadeInOutRed 1.5s ease-in-out forwards;
+    animation: fade-in-out-red 1.5s ease-in-out forwards;
 }
-.containerTimer {
+
+/* Timer Container */
+.container-timer {
     width: 100px;
     height: 100px;
-    border: 5px solid #fff;
-    border-radius: 50%;
+    margin: 0 auto;
     padding-top: 2.25%;
     padding-left: 1.5%;
     font-size: 1.5rem;
-    background: radial-gradient(circle, rgba(255, 255, 255, 0.1), rgba(0, 0, 0, 0.5));
-    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
     color: white;
-    margin: 0 auto;
+    border: 5px solid #fff;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgb(255 255 255 / 10%), rgb(0 0 0 / 50%));
+    box-shadow: 0 0 10px rgb(255 255 255 / 50%);
 }
-.optionlife button{
+
+/* Lifeline Buttons */
+.optionlife button {
     font-size: 2rem;
     color: white;
-    margin-left: 10%;
-    height: 12vh;
     width: 40vh;
+    height: 12vh;
+    margin-left: 10%;
     border-radius: 50%;
-    box-shadow: 0 0 20px white;
-    font-family: "Lora", serif;
-    font-optical-sizing: auto;
-    font-weight:900;
-    font-style: normal;
     border: 5px solid #fff;
-    background: radial-gradient(circle, rgba(255, 255, 255, 0.1), rgba(0, 0, 0, 0.5));
-    
-
+    font-weight: 900;
+    font-style: normal;
+    font-optical-sizing: auto;
+    box-shadow: 0 0 20px white;
+    background: radial-gradient(circle, rgb(255 255 255 / 10%), rgb(0 0 0 / 50%));
 }

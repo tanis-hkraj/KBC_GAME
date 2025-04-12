@@ -426,7 +426,7 @@ function Question(question) {
                         </tbody>
                     </table>
                 </div>
-                <div class="containerTimer">
+                <div class="container-timer">
                     <div class="countdown col-lg-4"></div>
                 </div>
                 
@@ -445,7 +445,7 @@ function Question(question) {
         </div>
     </div>
         <div class="container" id="ques">
-            <div class="quesStrt row">
+            <div class="ques-strt row">
                 <div class="col-lg">
                     <h1>Q` + question + `.` + randomques + `</h1>
                 </div>
