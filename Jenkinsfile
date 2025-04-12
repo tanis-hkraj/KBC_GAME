@@ -30,14 +30,16 @@ pipeline {
         stage('Build/Prepare') {
             steps {
                 echo 'Preparing files for deployment...'
+                bat 'if exist build rmdir /S /Q build'
                 bat 'mkdir build'
                 bat 'copy index.html build\\'
                 bat 'copy styles.css build\\'
                 bat 'copy script.js build\\'
                 bat 'copy logo-photoaidcom-cropped.png build\\'
-                bat 'xcopy music build\\music /E /I /Y'  // Copy entire music folder
+                bat 'xcopy music build\\music /E /I /Y'
             }
         }
+
 
         stage('Deploy to Web Server') {
             steps {
