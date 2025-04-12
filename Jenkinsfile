@@ -17,15 +17,16 @@ pipeline {
         stage('Install Dependencies') {
             steps {
                 echo '📦 No dependencies needed for static site.'
-                bat 'if exist requirements.txt pip install -r requirements.txt'
             }
         }
 
         stage('Lint Code') {
-            steps {
-                echo '🔍 Linting HTML/CSS/JS (Optional)...'
-            }
-        }
+    steps {
+        echo '🔍 Running HTML, CSS, JS Linters...'
+        bat 'npm install' // If using a Windows agent
+        bat 'npm run lint'
+    }
+}
 
         stage('Build/Prepare') {
             steps {
