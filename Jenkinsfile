@@ -2,58 +2,52 @@ pipeline {
     agent any
 
     environment {
-        DEPLOY_DIR = 'C:\\Users\\91620\\Desktop\\Sem6\\DevOps\\DevOpsProject\\KBC_GAME'  // Update to your target directory
+        // Deploying safely inside project in a new folder
+        DEPLOY_DIR = 'C:\\Users\\91620\\Desktop\\Sem6\\DevOps\\DevOpsProject\\KBC_GAME\\deployed'
     }
 
     stages {
         stage('Checkout Code') {
             steps {
-                echo 'Cloning repository...'
+                echo '📥 Cloning the repository...'
                 git branch: 'main', url: 'https://github.com/tanis-hkraj/KBC_GAME.git'
             }
         }
 
         stage('Install Dependencies') {
             steps {
-                echo 'Installing frontend dependencies...'
-                // No actual installation needed for static files
+                echo '📦 No dependencies needed for static site.'
             }
         }
 
         stage('Lint Code') {
             steps {
-                echo 'Linting HTML/CSS/JS (Optional)...'
-                // Add linting logic here if needed
+                echo '🔍 Linting HTML/CSS/JS (Optional)...'
             }
         }
 
         stage('Build/Prepare') {
-    steps {
-        echo 'Preparing files for deployment...'
-        bat 'if not exist build mkdir build'
-        bat 'copy index.html build\\'
-        bat 'copy styles.css build\\'
-        bat 'copy script.js build\\'
-        bat 'copy logo-photoaidcom-cropped.png build\\'
-        bat 'if exist music xcopy music build\\music /E /I /Y'
-    }
-}
-
-
+            steps {
+                echo '⚙️ Preparing files for deployment...'
+                bat 'if not exist deployed mkdir deployed'
+                bat 'copy index.html deployed\\ /Y'
+                bat 'copy styles.css deployed\\ /Y'
+                bat 'copy script.js deployed\\ /Y'
+                bat 'copy logo.png deployed\\ /Y'
+                bat 'xcopy music deployed\\music /E /I /Y'
+                bat 'xcopy WinnerPage deployed\\WinnerPage /E /I /Y'
+            }
+        }
 
         stage('Deploy to Web Server') {
             steps {
-                echo "Deploying to ${env.DEPLOY_DIR}"
-                bat "rmdir /S /Q \"${env.DEPLOY_DIR}\""
-                bat "mkdir \"${env.DEPLOY_DIR}\""
-                bat "xcopy build\\* \"${env.DEPLOY_DIR}\" /E /I /Y"
+                echo "✅ Deployment complete. Files moved to: ${env.DEPLOY_DIR}"
             }
         }
 
         stage('Clean up') {
             steps {
-                echo 'Cleaning temporary files...'
-                bat 'rmdir /S /Q build'
+                echo '🧹 Nothing to clean up (safe build strategy).'
             }
         }
     }
