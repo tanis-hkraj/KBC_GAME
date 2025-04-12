@@ -9,6 +9,7 @@ pipeline {
         stage('Checkout Code') {
             steps {
                 echo 'Cloning repository...'
+                git branch: 'main', url: 'https://github.com/tanis-hkraj/KBC_GAME.git'
             }
         }
 
