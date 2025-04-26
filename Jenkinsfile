@@ -2,7 +2,6 @@ pipeline {
     agent any
 
     environment {
-        // Deploying safely inside project in a new folder
         DEPLOY_DIR = 'C:\\Users\\91620\\Desktop\\Sem6\\DevOps\\DevOpsProject\\KBC_GAME\\deployed'
     }
 
@@ -16,17 +15,17 @@ pipeline {
 
         stage('Install Dependencies') {
             steps {
-                echo '📦 No dependencies needed for static site.'
+                echo '📦 Installing Node.js dependencies for linting...'
+                bat 'npm install'
             }
         }
 
         stage('Lint Code') {
-    steps {
-        echo '🔍 Running HTML, CSS, JS Linters...'
-        bat 'npm install' // If using a Windows agent
-        bat 'npm run lint'
-    }
-}
+            steps {
+                echo '🔍 Running HTML, CSS, JS Linters...'
+                bat 'npm run lint'
+            }
+        }
 
         stage('Build/Prepare') {
             steps {
